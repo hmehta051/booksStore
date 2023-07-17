@@ -47,7 +47,7 @@ const Navbar = () => {
   };
   const handleLogout = () => {
     sessionStorage.removeItem("authText");
-    sessionStorage.removeItem("authUser");
+    // sessionStorage.removeItem("authUser");
     window.location.reload();
   };
   return (
