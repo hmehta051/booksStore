@@ -1,12 +1,15 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { addItem } from "../redux/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 const SingleProductPage = ({ bookData }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleAddBooks = () => {
     dispatch(addItem(bookData));
+    navigate("/checkout");
   };
   return (
     <div className="w-[96%] m-auto mt-2">
@@ -88,12 +91,12 @@ const SingleProductPage = ({ bookData }) => {
           </div>
           <div className="flex items-center justify-start w-[60%] gap-5">
             <button
-              className="w-[50%] text-white bg-[#e42b26] p-2"
+              className="w-[50%] text-white bg-[#e42b26] p-2 cursor-pointer"
               onClick={handleAddBooks}
             >
               Buy Now
             </button>
-            <button className="w-[50%] text-[#e42b26] border border-[#e42b26] p-2">
+            <button className="w-[50%] text-[#e42b26] border border-[#e42b26] p-2 cursor-pointer">
               Add to Wishlist
             </button>
           </div>

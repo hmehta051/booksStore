@@ -2,16 +2,18 @@ import React, { useState } from "react";
 import { MdClose } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { addItem } from "../redux/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 const QuickView = ({ quickData, setQuickView, quickView }) => {
   const [count, setCount] = useState(1);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleAddBooks = () => {
     const bookToAdd = { ...quickData };
-
     for (let i = 0; i < count; i++) {
       dispatch(addItem(bookToAdd));
     }
+    navigate("/checkout");
   };
   const closeModal = () => {
     setQuickView(false);
@@ -55,7 +57,7 @@ const QuickView = ({ quickData, setQuickView, quickView }) => {
               </button>
             </div>
             <button
-              className="bg-[#e42b26] w-[100px] text-white p-1"
+              className="bg-[#e42b26] w-[100px] text-white p-1 cursor-pointer"
               onClick={handleAddBooks}
             >
               Add to Cart

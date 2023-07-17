@@ -70,7 +70,7 @@ const Navbar = () => {
                 onChange={(e) => setSearch(e.target.value)}
               />
               <BiSearchAlt2
-                className="bg-red-700 text-white text-[35px] border border-[#e42b26] p-1"
+                className="bg-red-700 text-white text-[35px] border border-[#e42b26] p-1 cursor-pointer"
                 onClick={handleSearch}
               />
             </div>
@@ -80,12 +80,17 @@ const Navbar = () => {
               <BsPersonCircle />
               <p>
                 {sessionStorage.getItem("authText") ? (
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 cursor-pointer underline">
                     <p onClick={handleAuth}>My Account</p>
                     <p onClick={handleLogout}>Logout</p>
                   </div>
                 ) : (
-                  <div onClick={handleAuth}>Signup/Login</div>
+                  <div
+                    className="cursor-pointer hover:underline"
+                    onClick={handleAuth}
+                  >
+                    Signup/Login
+                  </div>
                 )}
               </p>
               <MdKeyboardArrowRight />
