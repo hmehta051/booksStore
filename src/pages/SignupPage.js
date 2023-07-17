@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignupPage = () => {
   const [name, setName] = useState("");
@@ -78,6 +78,9 @@ const SignupPage = () => {
               Sign Up
             </button>
           </div>
+          <Link to="/login" className="text-[#e42b26] underline">
+            Already have an account? Click here
+          </Link>
         </form>
       </div>
       <Footer />
